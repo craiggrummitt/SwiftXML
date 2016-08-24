@@ -27,3 +27,9 @@ xml[0].addChild(bookNode)
 ```
 ##Serialize XML
 Regenerate XML structure from your data with the XMLNode's `description` property.
+
+#Install SwiftXML
+Drag the XML.swift file to your project
+
+#Compatibility
+SwiftXML is Swift 3.0 compatible.
