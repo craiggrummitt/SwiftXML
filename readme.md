@@ -7,7 +7,8 @@ Import an XML document simply, and the XML structure will be converted to `XMLNo
 guard let url = Bundle.main.url(forResource: "books", withExtension: "xml") else { return }
 guard let xml = XML(contentsOf: url) else { return }
 ```
-##Use subscripts to get and set nodes and properties
+##Use subscripts
+Use subscripts to get and set nodes and properties.
 ```
 xml[0][0]["title"]?.text = "Great Expectations"
 ```
