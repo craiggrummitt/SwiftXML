@@ -12,7 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        guard let url = Bundle.main.url(forResource: "books", withExtension: "xml") else { return }
+        guard let xml = XML(contentsOf: url) else { return }
+        let bookNode = XMLNode(name:"book")
+        bookNode.addChild(name: "title", value: "Robinson Crusoe")
+        bookNode.addChild(name: "author", value: "Daniel Defoe")
+        bookNode.attributes["isbn"] = "9789835004100"
+        xml[0].addChild(bookNode)
+        print(xml)
     }
 
     override func didReceiveMemoryWarning() {
