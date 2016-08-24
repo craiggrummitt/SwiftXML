@@ -59,16 +59,6 @@ class XMLNode:NSObject {
             newValue.parent = self
         }
     }
-    func addChild(_ node:XMLNode) {
-        children.append(node)
-        node.parent = self
-    }
-    func addChild(name:String,value:String) {
-        addChild(XMLNode(name: name, value: value))
-    }
-    func removeChild(at index:Int) {
-        children.remove(at: index)
-    }
     subscript(index: String) -> XMLNode? {
         //if more than one exists, assume the first
         get {
@@ -82,6 +72,16 @@ class XMLNode:NSObject {
             filteredChild.text = newNode.text
             filteredChild.children = newNode.children
         }
+    }
+    func addChild(_ node:XMLNode) {
+        children.append(node)
+        node.parent = self
+    }
+    func addChild(name:String,value:String) {
+        addChild(XMLNode(name: name, value: value))
+    }
+    func removeChild(at index:Int) {
+        children.remove(at: index)
     }
     //MARK: Description properties
     override var description:String {
