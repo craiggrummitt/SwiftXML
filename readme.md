@@ -50,4 +50,4 @@ print(xml)
 Drag the XML.swift file to your project
 
 # Compatibility
-SwiftXML is Swift 3.0 compatible.
+SwiftXML is Swift 4.0 compatible.
