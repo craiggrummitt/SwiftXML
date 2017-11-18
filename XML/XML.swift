@@ -46,7 +46,7 @@ class XMLNode:NSObject {
     }
     //MARK: Update data
     func indexIsValid(index: Int) -> Bool {
-        return (index >= 0 && index <= children.count)
+        return (index >= 0 && index < children.count)
     }
     subscript(index: Int) -> XMLNode {
         get {
