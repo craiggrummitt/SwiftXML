@@ -18,6 +18,7 @@ class XML:XMLNode {
         parser.parse()
     }
     init?(contentsOf url: URL) {
+        if !FileManager.default.fileExists(atPath: url.path) { return nil }
         guard let parser = XMLParser(contentsOf: url) else { return nil}
         self.parser = parser
         super.init()
@@ -35,7 +36,7 @@ class XMLNode:NSObject {
     var parent:XMLNode?
     
     override init() {
-
+        self.name = "root"
     }
     init(name:String) {
         self.name = name
@@ -85,10 +86,10 @@ class XMLNode:NSObject {
     }
     //MARK: Description properties
     override var description:String {
-        if let name = name {
-            return "<\(name)\(attributesDescription)>\(text)\(childrenDescription)</\(name)>"
-        } else if let first = children.first {
+        if self is XML, let first = children.first {
             return "<?xml version=\"1.0\" encoding=\"utf-8\"?>\(first.description)"
+        } else if let name = name {
+            return "<\(name)\(attributesDescription)>\(text)\(childrenDescription)</\(name)>"
         } else {
             return ""
         }
