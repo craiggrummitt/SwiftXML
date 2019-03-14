@@ -32,7 +32,7 @@ class XMLNode: NSObject {
     var attributes: [String: String] = [:]
     var text = ""
     var children: [XMLNode] = []
-    var parent: XMLNode?
+    weak var parent: XMLNode?
 
     override init() {
         self.name = "root"
